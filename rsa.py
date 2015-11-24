@@ -1,13 +1,26 @@
 import random, math
+
+List_Prime = [2]
+
 def isPrime(i):
+    if i == 2 :   return True
+
     limit = int(math.sqrt(i)//1)
-    if i == 2 or i ==3:
-        return True
-    for number in range(2,limit+1):
-        if i%number == 0:
-            return False
+
+    if limit < List_Prime[len(List_Prime)-1]:
+        for checkprime in range(0,len(List_Prime)):
+            if List_Prime[checkprime] > limit: break
+            if number%List_Prime[checkprime] == 0:
+                return False
+                break
+            return True
             break
-        if number == limit:
+                                                            
+    
+    for number in range(List_Prime[len(List_Prime)-1], limit):
+        for checkprime in range(0,len(List_Prime)):
+            if number%List_Prime[checkprime] == 0:
+                break
             return True
             break
 
