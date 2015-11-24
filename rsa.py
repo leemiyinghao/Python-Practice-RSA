@@ -1,6 +1,16 @@
 import random, math
 def isPrime(i):
-   #TODO: complete your isPrime here
+    limit = int(math.sqrt(i)//1)
+    if i == 2 or i ==3:
+        return True
+    for number in range(2,limit+1):
+        if i%number == 0:
+            return False
+            break
+        if number == limit:
+            return True
+            break
+
 def genPrime(start, end):
    while True:
       num = random.randint(start, end)
