@@ -1,16 +1,27 @@
 import random, math
-def isPrime(i):
-    limit = int(math.sqrt(i)//1)
-    if i == 2 or i ==3:
-        return True
-    for number in range(2,limit+1):
-        if i%number == 0:
-            return False
-            break
-        if number == limit:
-            return True
-            break
 
+class isPrime:
+    List_Prime = [2]
+    def __init__(self, Number):
+        self.Find_Prime(Number)
+        return self.Check_Prime(Number)
+        
+    def Find_Prime(self, Number):
+        limit = int(math.sqrt(Number)//1)
+        for number in range(2, limit):
+            for checkprime in range(0,len(List_Prime)):
+                if number%List_Prime[checkprime] == 0:
+                    break
+            List_Prime.append(number)
+            continue
+        
+    def Check_Prime(self, Number):
+        for number in range(0,len(List_Prime)):
+            if Number%List_Prime[number] == 0:
+                return False
+                break
+        return True
+        
 def genPrime(start, end):
    while True:
       num = random.randint(start, end)
